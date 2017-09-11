@@ -4,7 +4,7 @@ import urllib.request
 
 def proxy_list_from_free_proxy_list_net():
     """
-    this generator will connect to https://free-proxy-list.net/
+    will connect to https://free-proxy-list.net/
     and will get the proxy list from that page
     proxy format : ip address, port
     """
@@ -15,7 +15,7 @@ def proxy_list_from_free_proxy_list_net():
     req = urllib.request.Request(link)
     req.add_header('User-Agent', 'Mozilla/5.0')
     content = urllib.request.urlopen(req).read().decode('ascii')
-    
+
     res = re.findall(regex, content)
     return res
 
@@ -32,9 +32,9 @@ def validate_proxy(ip, port):
     proxy_handler = urllib.request.ProxyHandler({'http': 'http://{}:{}/'.format(ip, port)})
     opener = urllib.request.build_opener(proxy_handler)
     try:
-        res = opener.open(link, timeout = 2)
+        res = opener.open(link, timeout=2)
         if res.read() == response:
-            return True            
+            return True
     except Exception as e:
         pass
     return False
