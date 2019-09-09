@@ -27,7 +27,7 @@ def validate_proxy(ip, port):
     return: True/False if the proxy is working
     """
     link = 'http://www.google.com/humans.txt'
-    response = b"Google is built by a large team of engineers, designers, researchers, robots, and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see google.com/careers.\n"
+    response = b"Google is built by a large team of engineers, designers, researchers, robots, and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see careers.google.com.\n"
 
     proxy_handler = urllib.request.ProxyHandler({'http': 'http://{}:{}/'.format(ip, port)})
     opener = urllib.request.build_opener(proxy_handler)
